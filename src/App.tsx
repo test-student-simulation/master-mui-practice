@@ -37,7 +37,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useEffect, useState } from 'react';
-import { type Game, initialGame } from './types';
+import { type Game, initialGame, gamesForDemo } from './types';
 import GameDialog from './components/GameDialog';
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [games, setGames] = useState<Game[]>(() => {
     const savedGames = localStorage.getItem('games');
-    return savedGames ? JSON.parse(savedGames) : [];
+    return savedGames ? JSON.parse(savedGames) : gamesForDemo;
   });
   useEffect(() => {
     localStorage.setItem('games', JSON.stringify(games));
